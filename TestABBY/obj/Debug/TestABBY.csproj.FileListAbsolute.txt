@@ -1,0 +1,8 @@
+c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\bin\Debug\TestABBY.exe.config
+c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\bin\Debug\TestABBY.exe
+c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\bin\Debug\TestABBY.pdb
+c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\bin\Debug\Newtonsoft.Json.dll
+c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\bin\Debug\Newtonsoft.Json.xml
+c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\obj\Debug\TestABBY.csprojResolveAssemblyReference.cache
+c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\obj\Debug\TestABBY.exe
+c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\obj\Debug\TestABBY.pdb
