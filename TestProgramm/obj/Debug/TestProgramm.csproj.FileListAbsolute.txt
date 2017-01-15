@@ -1,8 +1,0 @@
-c:\users\бочков\documents\visual studio 2013\Projects\TestProgramm\TestProgramm\bin\Debug\TestProgramm.exe.config
-c:\users\бочков\documents\visual studio 2013\Projects\TestProgramm\TestProgramm\bin\Debug\TestProgramm.exe
-c:\users\бочков\documents\visual studio 2013\Projects\TestProgramm\TestProgramm\bin\Debug\TestProgramm.pdb
-c:\users\бочков\documents\visual studio 2013\Projects\TestProgramm\TestProgramm\obj\Debug\TestProgramm.csprojResolveAssemblyReference.cache
-c:\users\бочков\documents\visual studio 2013\Projects\TestProgramm\TestProgramm\obj\Debug\TestProgramm.exe
-c:\users\бочков\documents\visual studio 2013\Projects\TestProgramm\TestProgramm\obj\Debug\TestProgramm.pdb
-c:\users\бочков\documents\visual studio 2013\Projects\TestProgramm\TestProgramm\bin\Debug\Newtonsoft.Json.dll
-c:\users\бочков\documents\visual studio 2013\Projects\TestProgramm\TestProgramm\bin\Debug\Newtonsoft.Json.xml
