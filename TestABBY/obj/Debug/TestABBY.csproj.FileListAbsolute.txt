@@ -6,3 +6,11 @@ c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\bi
 c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\obj\Debug\TestABBY.csprojResolveAssemblyReference.cache
 c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\obj\Debug\TestABBY.exe
 c:\users\бочков\documents\visual studio 2013\Projects\TestABBY\TestABBY\obj\Debug\TestABBY.pdb
+C:\Users\User\Documents\GitHub\YandexTranslator\TestABBY\bin\Debug\TestABBY.exe.config
+C:\Users\User\Documents\GitHub\YandexTranslator\TestABBY\obj\Debug\TestABBY.exe
+C:\Users\User\Documents\GitHub\YandexTranslator\TestABBY\obj\Debug\TestABBY.pdb
+C:\Users\User\Documents\GitHub\YandexTranslator\TestABBY\bin\Debug\TestABBY.exe
+C:\Users\User\Documents\GitHub\YandexTranslator\TestABBY\bin\Debug\TestABBY.pdb
+C:\Users\User\Documents\GitHub\YandexTranslator\TestABBY\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\Documents\GitHub\YandexTranslator\TestABBY\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\Documents\GitHub\YandexTranslator\TestABBY\obj\Debug\TestABBY.csprojResolveAssemblyReference.cache
