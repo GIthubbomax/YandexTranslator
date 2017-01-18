@@ -40,7 +40,7 @@ namespace TestABBY
 
     public class Yandextranslator
     {
-        const string key = "trnsl.1.1.20170113T143509Z.b4a732df995ebdfe.7d79b996374e63d3c3d5409435fa4c0f9ffa3065";//"trnsl.1.1.20170113T143509Z.b4a732df995ebdfe.7d79b996374e63d3c3d5409435fa4c0f9ffa3065";
+        static string key = "";
 
         /// <summary>
         /// Метод получает список путей к txt файлам 
@@ -69,7 +69,6 @@ namespace TestABBY
         static List<string> GetListLanguages()
         {
             Dictionary<string, string> languages = new Dictionary<string, string>();
-            List<string> langliList = new List<string>();
             WebResponse response = null;
             try
             {
@@ -111,15 +110,11 @@ namespace TestABBY
                                 line += langdirect.Substring(2, 3);
                             else
                             {
-                                langliList.Add(line);
+                                Console.WriteLine(line);
                                 prefix = langdirect.Substring(0, 2);
                                 line = languages[prefix] + " " + prefix + ":";
                             }
 
-                        }
-                        foreach (var lang in langliList)
-                        {
-                            Console.WriteLine(lang);
                         }
                     }
                     else
@@ -201,7 +196,8 @@ namespace TestABBY
         /// <param name="text">исходный текст файла</param>
         /// <param name="langdirect">направлене перевода</param>
         /// <param name="fileresult">путь к файлу, в который будет записан результат</param>
-        static void Translate(string text, string langdirect, string fileresult)
+        /// <param name="filename">имя файла, который переводится</param>
+        static void Translate(string text, string langdirect, string fileresult,string filename)
         {
             WebResponse response = null;
             System.Diagnostics.Stopwatch swatch = new System.Diagnostics.Stopwatch();
@@ -218,7 +214,7 @@ namespace TestABBY
             }
             catch (WebException e)
             {
-                Console.WriteLine("Не удалось выполнить перевод по причине: {0}", e.Message);
+                Console.WriteLine("Не удалось выполнить перевод {1} по причине: {0}", e.Message,Path.GetFileName(filename));
             }
             RootObjectTranslate data;
             if (response != null)
@@ -259,8 +255,10 @@ namespace TestABBY
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Введите API-ключ");
+            key = Console.ReadLine();
             Console.WriteLine("Введите путь к деректории, содержащей txt файлы");
-            string directory = @"C:\Users\User\Desktop\txt"; 
+            string directory = Console.ReadLine();
             List<string> paths = ReadFileNamesFromDirectory(directory);
             if (paths.Count == 0)
             {
@@ -269,13 +267,14 @@ namespace TestABBY
                 return;
             }
             Console.WriteLine("Введите путь к деректории, в которую будут сохранены результаты в файле fileres.csv");
-            string fileresult = @"C:\Users\User\Desktop\txt\";//Console.ReadLine();
+            string fileresult = Console.ReadLine();
             while (!Directory.Exists(fileresult))
             {
                 Console.WriteLine("Введите допустимый путь к деректории, в которую будут сохранены результаты в файле fileres.csv");
                 fileresult = Console.ReadLine();
             }
             fileresult += "fileresult.csv";
+            //проверка существования и создание файла для результатов
             try
             {
                 ConsoleKeyInfo resquestion;
@@ -293,33 +292,33 @@ namespace TestABBY
             }
             catch (Exception e)
             {
-                Console.WriteLine("Не удалось создать файл и добавить текст по причине {0}. Программа будет завершена, нажмите Enter", e.Message);
+                Console.WriteLine("Не удалось создать файл результатов и добавить текст по причине {0}. Программа будет завершена, нажмите Enter", e.Message);
                 Console.ReadLine();
                 return;
             }
             Console.WriteLine("Список доступных языков:");
-            var dictionary = GetListLanguages();
+            List<string> dictionary = GetListLanguages();
             if (dictionary == null) return;
             Console.WriteLine("Введите исходный язык и язык перевода в формате **-**");
-            //проверка формата ввода языка 
+            //проверка формата ввода языка и доступности такого направления перевода
             string langdirect = Console.ReadLine().ToLower();
             while (!dictionary.Contains(langdirect))
             {
                 Console.WriteLine("Введите исходный язык и язык перевода в формате **-**");
                 langdirect = Console.ReadLine().ToLower();
             }
-
+            
             foreach (var namefile in paths)
             {
                
                 string text = null;
                 try { text = File.ReadAllText(namefile); }
-                catch (Exception e) { Console.WriteLine("Не удалось прочиать содержимое файла по причине " + e.Message); }
+                catch (Exception e) { Console.WriteLine("Не удалось прочиать содержимое файла "+namefile+" по причине " + e.Message); }
                 if (text != null)
                 {
-                    if (text.Length > 10000)
+                    if (text.Length > 10000)//ограничение от яндекса
                     {
-                        Console.WriteLine("Текст в файле {0} слишком длинный для перевода", Path.GetFileName(namefile));
+                        Console.WriteLine("Текст в файле {0} слишком длинный для перевода. Для продолжения нажмите Enter", Path.GetFileName(namefile));
                         Console.ReadLine();
                     }
                     else if (text.Length == 0)
@@ -330,11 +329,12 @@ namespace TestABBY
                     {
                         string detectlang = DetectLanguage(text,fileresult,namefile);
                         if (detectlang == null) return;
-                        if (detectlang.Equals(langdirect.Substring(0, 2))) Translate(text, langdirect,fileresult);
+                        if (detectlang.Equals(langdirect.Substring(0, 2))) Translate(text, langdirect,fileresult,namefile);
                        
                     }
                 }
             }
+            Console.WriteLine("Нажмите Enter для выхода");
             Console.ReadLine();
         }
     }
